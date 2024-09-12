@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1085536745850",
+    "project_id": "edu-vista-test000",
+    "storage_bucket": "edu-vista-test000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085536745850:android:789d809c73b15989d7fec3",
+        "android_client_info": {
+          "package_name": "com.eduvista000.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGK-lkXPSlWi0l-2gNU_H2LTRGfTGikUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085536745850:android:da69fe5300fc030fd7fec3",
+        "android_client_info": {
+          "package_name": "com.eduvistatest.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGK-lkXPSlWi0l-2gNU_H2LTRGfTGikUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
