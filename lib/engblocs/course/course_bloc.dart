@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista_test/engutils/app_enums.dart';
+import 'package:edu_vista_test/utils/app_enums.dart';
 import 'package:edu_vista_test/model/engcourse.dart';
 import 'package:edu_vista_test/model/englecture.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -3,7 +3,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:edu_vista_test/engcubid/eng_auth_state.dart';
 import 'package:edu_vista_test/pages/categoriesPage.dart';
-import 'package:edu_vista_test/pages/engcourse_details_page.dart';
+import 'package:edu_vista_test/pages/CourseDetailsPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

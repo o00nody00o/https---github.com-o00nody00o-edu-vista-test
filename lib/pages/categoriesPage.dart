@@ -4,16 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista_test/pages/chat.dart';
 import 'package:edu_vista_test/pages/courses.dart';
 import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/payment.dart';
 import 'package:edu_vista_test/pages/profile.dart';
 import 'package:edu_vista_test/pages/search.dart';
-import 'package:edu_vista_test/pages/signUpPage.dart';
 import 'package:edu_vista_test/widgets/CategoriesFilter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class CategoriesPage extends StatefulWidget {
    TextEditingController? email = LoginPageState.emailController;

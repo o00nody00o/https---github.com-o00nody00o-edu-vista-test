@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors, prefer_const_constructors, use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista_test/engutils/color_utilis.dart';
+import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:edu_vista_test/pages/LoginPage.dart';
 import 'package:edu_vista_test/widgets/my_textfield.dart';
 import 'package:flutter/material.dart';

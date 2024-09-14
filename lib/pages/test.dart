@@ -10,16 +10,16 @@ import 'package:edu_vista_test/pages/search.dart';
 import 'package:edu_vista_test/widgets/CategoriesFilter.dart';
 import 'package:flutter/material.dart';
 
-class DisplayFullNamePage extends StatefulWidget {
+class Categorypage extends StatefulWidget {
    TextEditingController? email = LoginPageState.emailController; // Assuming you're passing the user's email to fetch their fullName
 
-  DisplayFullNamePage({ this.email});
+  Categorypage({ this.email});
 
   @override
-  DisplayFullNamePageState createState() => DisplayFullNamePageState();
+  CategorypageState createState() => CategorypageState();
 }
 
-class DisplayFullNamePageState extends State<DisplayFullNamePage> {
+class CategorypageState extends State<Categorypage> {
   static String? fullName;
   int currentIndex = 0;
 BuildContext get context;

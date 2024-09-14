@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, sized_box_for_whitespace, library_private_types_in_public_api, use_build_context_synchronously
 
-import 'package:edu_vista_test/engutils/color_utilis.dart';
+import 'package:edu_vista_test/pages/HomePage.dart';
 import 'package:edu_vista_test/pages/categoriesPage.dart';
 import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
 import 'package:edu_vista_test/pages/loginPage.dart';
@@ -46,7 +46,7 @@ class LoginPageState extends State<LoginPage> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => CategoriesPage()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } on FirebaseAuthException catch (e) {
       setState(() {

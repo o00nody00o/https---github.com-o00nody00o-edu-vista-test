@@ -1,8 +1,8 @@
 
-import 'package:edu_vista_test/engutils/image_utility.dart';
+import 'package:edu_vista_test/utils/image_utility.dart';
 import 'package:edu_vista_test/pages/LoginPage.dart';
 import 'package:edu_vista_test/pages/categoriesPage.dart';
-import 'package:edu_vista_test/pages/engonboarding_page.dart';
+import 'package:edu_vista_test/pages/onboarding_page.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

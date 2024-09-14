@@ -1,8 +1,6 @@
 
 // ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
 
-import 'package:edu_vista_test/engutils/color_utilis.dart';
-import 'package:edu_vista_test/engutils/image_utility.dart';
 import 'package:edu_vista_test/engwidgets/custom_elevated_button.dart';
 import 'package:edu_vista_test/engwidgets/onboarding/elevated_button_rounded.dart';
 import 'package:edu_vista_test/engwidgets/onboarding/onboard_indicator.dart';
@@ -10,6 +8,8 @@ import 'package:edu_vista_test/engwidgets/onboarding/onboard_item_widget.dart';
 import 'package:edu_vista_test/pages/LoginPage.dart';
 import 'package:edu_vista_test/pages/SignUpPage.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
+import 'package:edu_vista_test/utils/color_utilis.dart';
+import 'package:edu_vista_test/utils/image_utility.dart';
 import 'package:flutter/material.dart';
 // import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 

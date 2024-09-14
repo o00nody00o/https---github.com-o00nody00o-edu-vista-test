@@ -2,6 +2,7 @@
 
 
 import 'package:edu_vista_test/pages/LoginPage.dart';
+import 'package:edu_vista_test/pages/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -89,8 +90,10 @@ class _ProfilePageState extends State<ProfilePage> {
           IconButton(
             icon: Icon(Icons.shopping_cart, color: Colors.black),
             onPressed: () {
-              // Implement cart navigation
-            },
+ Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CartPage()), 
+    );            },
           ),
         ],
       ),
@@ -118,14 +121,11 @@ class _ProfilePageState extends State<ProfilePage> {
           Text(_email, style: TextStyle(color: Colors.grey)),
           SizedBox(height: 20),
           _buildProfileOption('Edit', Icons.arrow_forward_ios, () {
-            // Implement edit action
           }),
           _buildProfileOption('Setting', Icons.arrow_forward_ios, () {
-            // Implement settings navigation
           }),
          
           _buildProfileOption('About Us', Icons.arrow_forward_ios, () {
-            // Implement about us navigation
           }),
           Spacer(),
           Padding(
@@ -149,4 +149,3 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
-// Placeholder Login Page, replace with actual implementation.

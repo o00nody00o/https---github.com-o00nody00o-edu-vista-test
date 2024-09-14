@@ -1,5 +1,7 @@
-import 'package:edu_vista_test/engutils/color_utilis.dart';
-import 'package:edu_vista_test/pages/payment.dart';
+// ignore_for_file: prefer_const_constructors
+
+import 'package:edu_vista_test/pages/PaymentMethodPage.dart';
+import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSelectionPage extends StatefulWidget {
@@ -82,23 +84,4 @@ class _PaymentSelectionPageState extends State<PaymentSelectionPage> {
   }
 }
 
-// Placeholder for PaymentMethodPage, replace with actual implementation.
-// class PaymentMethodPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Center(child: Text('Payment Method')),
-//       ),
-//       body: Center(
-//         child: Text('Payment Method Details Page'),
-//       ),
-//     );
-//   }
-// }
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: PaymentSelectionPage(),
-//   ));
-// }

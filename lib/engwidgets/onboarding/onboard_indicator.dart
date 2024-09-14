@@ -1,4 +1,4 @@
-import 'package:edu_vista_test/engutils/color_utilis.dart';
+import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardIndicator extends StatelessWidget {

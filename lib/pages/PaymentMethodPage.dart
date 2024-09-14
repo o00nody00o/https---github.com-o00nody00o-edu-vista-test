@@ -3,8 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:paymob_payment/paymob_payment.dart'; // Example, update if needed
+import 'package:paymob_payment/paymob_payment.dart';
 
 
 
@@ -22,7 +21,6 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   final TextEditingController _phoneController = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Replace with your Paymob credentials
   final String apiKey = '';
   final String integrationId = '';
 
@@ -30,7 +28,12 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Payment Method', style: TextStyle(color: Colors.black)),
+        title: Text('Payment Method', textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Readex Pro',
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
+            )),
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
@@ -78,19 +81,20 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
               keyboardType: TextInputType.phone,
             ),
             SizedBox(height: 24),
-            // ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: Colors.yellow,
-            //     padding: EdgeInsets.symmetric(vertical: 16),
-            //     minimumSize: Size(double.infinity, 50),
-            //   ),
-            //   onPressed: 
-            //   _processPayment,
-            //   child: Text(
-            //     'CONTINUE',
-            //     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            //   ),
-            // ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.yellow,
+                padding: EdgeInsets.symmetric(vertical: 16),
+                minimumSize: Size(double.infinity, 50),
+              ),
+              onPressed: 
+              // _processPayment,
+              null,
+              child: Text(
+                'CONTINUE',
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),
@@ -124,17 +128,16 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   //   }
 
   //   try {
-  //     // Initialize Paymob SDK
+     
   //     PaymobPayment paymobPayment = PaymobPayment(apiKey: apiKey);
 
-  //     // Register order on Paymob
+    
   //     final order = await paymobPayment.createOrder(
-  //       amountCents: 1000, // Example amount in cents
-  //       currency: 'EGP',
+  //       amountCents: 1000, 
+  //       currency: 'Dollar',
   //       merchantOrderId: 'order_${DateTime.now().millisecondsSinceEpoch}',
   //     );
 
-  //     // Create a payment key
   //     final paymentKey = await paymobPayment.createPaymentKey(
   //       orderId: order.id,
   //       amountCents: 1000,
@@ -149,11 +152,10 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   //       },
   //     );
 
-  //     // Perform the payment using card details
   //     final paymentResult = await paymobPayment.payWithCard(
   //       paymentKey: paymentKey.token,
   //       cardNumber: _cardNumberController.text,
-  //       cardExpiry: _expiryDateController.text, // Should be in format MM/YYYY
+  //       cardExpiry: _expiryDateController.text, 
   //       cardCvv: _cvvController.text,
   //     );
 
@@ -168,20 +170,20 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
   //   }
   // }
 
-//   Future<void> _savePaymentDetails(String transactionId) async {
-//     try {
-//       await _firestore.collection('payments').add({
-//         'transactionId': transactionId,
-//         'amount': 10.0, // Example amount, replace with actual
-//         'timestamp': FieldValue.serverTimestamp(),
-//       });
-//       _showMessage('Payment details saved successfully.');
-//     } catch (e) {
-//       _showMessage('Failed to save payment details: $e');
-//     }
-//   }
+  // Future<void> _savePaymentDetails(String transactionId) async {
+  //   try {
+  //     await _firestore.collection('payments').add({
+  //       'transactionId': transactionId,
+  //       'amount': 10.0, 
+  //       'timestamp': FieldValue.serverTimestamp(),
+  //     });
+  //     _showMessage('Payment details saved successfully.');
+  //   } catch (e) {
+  //     _showMessage('Failed to save payment details: $e');
+  //   }
+  // }
 
-//   void _showMessage(String message) {
-//     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
-//   }
-}
+  // void _showMessage(String message) {
+  //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+  }
+// }

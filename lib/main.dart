@@ -6,17 +6,18 @@ import 'package:device_preview/device_preview.dart';
 import 'package:edu_vista_test/engblocs/course/course_bloc.dart';
 import 'package:edu_vista_test/engblocs/lecture/lecture_bloc.dart';
 import 'package:edu_vista_test/engcubid/eng_auth_cubit.dart';
-import 'package:edu_vista_test/engutils/color_utilis.dart';
+import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:edu_vista_test/firebase_options.dart';
+import 'package:edu_vista_test/pages/PaymentMethodPage.dart';
+import 'package:edu_vista_test/pages/cart.dart';
 import 'package:edu_vista_test/pages/categoriesPage.dart';
-import 'package:edu_vista_test/pages/choosePayment.dart';
-import 'package:edu_vista_test/pages/engcourse_details_page.dart';
-import 'package:edu_vista_test/pages/enghome_page.dart';
-import 'package:edu_vista_test/pages/engonboarding_page.dart';
-import 'package:edu_vista_test/pages/engsplash_page.dart';
+import 'package:edu_vista_test/pages/PaymentSelectionPage.dart';
+import 'package:edu_vista_test/pages/CourseDetailsPage.dart';
+import 'package:edu_vista_test/pages/HomePage.dart';
+import 'package:edu_vista_test/pages/onboarding_page.dart';
+import 'package:edu_vista_test/pages/splash_page.dart';
 import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
 import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/payment.dart';
 import 'package:edu_vista_test/pages/profile.dart';
 import 'package:edu_vista_test/pages/resetPasswordPage.dart';
 import 'package:edu_vista_test/pages/resetpassword.dart';
@@ -83,22 +84,16 @@ class MyApp extends StatelessWidget {
         switch (routeName) {
            case PaymentMethodPage.id:
             return MaterialPageRoute(builder: (context) => PaymentMethodPage());
-          // case Loginpage.id:
-          //   return MaterialPageRoute(builder: (context) => Loginpage());
-          // case SignupPage.id:
-          //   return MaterialPageRoute(builder: (context) => SignupPage());
-          // case ResetPasswordPage.id:
-          //   return MaterialPageRoute(builder: (context) => ResetPasswordPage());
+         
           case OnBoardingPage.id:
             return MaterialPageRoute(builder: (context) => OnBoardingPage());
-          // case HomePage.id:
-          //   return MaterialPageRoute(builder: (context) => HomePage());
+         
           case CategoriesPage.id:
             return MaterialPageRoute(
                 builder: (context) => CategoriesPage());
 
           default:
-            return MaterialPageRoute(builder: (context) => DisplayFullNamePage
+            return MaterialPageRoute(builder: (context) => PaymentSelectionPage
             ());
         }
       },

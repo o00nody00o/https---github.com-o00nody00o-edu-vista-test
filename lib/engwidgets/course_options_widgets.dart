@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista_test/engblocs/course/course_bloc.dart';
-import 'package:edu_vista_test/engutils/app_enums.dart';
-import 'package:edu_vista_test/engutils/color_utilis.dart';
+import 'package:edu_vista_test/utils/app_enums.dart';
+import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:edu_vista_test/model/engcourse.dart';
 import 'package:edu_vista_test/model/englecture.dart';
 
