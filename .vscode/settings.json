@@ -14,6 +14,7 @@
         "engutils",
         "engwidgets",
         "firestore",
+        "Fluttertoast",
         "Loginpage",
         "Moris",
         "mycourse",

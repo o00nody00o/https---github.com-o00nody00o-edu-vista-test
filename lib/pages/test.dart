@@ -1,126 +1,118 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, file_names
+// ignore_for_file: prefer_const_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edu_vista_test/pages/cart.dart';
 import 'package:edu_vista_test/pages/chat.dart';
 import 'package:edu_vista_test/pages/courses.dart';
 import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/payment.dart';
 import 'package:edu_vista_test/pages/profile.dart';
 import 'package:edu_vista_test/pages/search.dart';
-import 'package:edu_vista_test/pages/signUpPage.dart';
 import 'package:edu_vista_test/widgets/CategoriesFilter.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-class CategoriesPage extends StatefulWidget {
-   TextEditingController? email = LoginPageState.emailController;
-  static const String id = 'Categories';
-   CategoriesPage({super.key,this.email});
+class DisplayFullNamePage extends StatefulWidget {
+   TextEditingController? email = LoginPageState.emailController; // Assuming you're passing the user's email to fetch their fullName
+
+  DisplayFullNamePage({ this.email});
 
   @override
-  State<CategoriesPage> createState() => _CategoriesPageState();
+  DisplayFullNamePageState createState() => DisplayFullNamePageState();
 }
 
-class _CategoriesPageState extends State<CategoriesPage> {
-
-String? fullName ;
- final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+class DisplayFullNamePageState extends State<DisplayFullNamePage> {
+  static String? fullName;
   int currentIndex = 0;
+BuildContext get context;
+  @override
+  void initState() {
+    super.initState();
+    fetchFullName();
+  }
 
+  Future<void> fetchFullName() async {
+    try {
+      final querySnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: widget.email)
+          .get();
 
-//  Future<void> fetchFullName() async {
-//     try {
-//       final querySnapshot = await FirebaseFirestore.instance
-//           .collection('users')
-//           .where('email', isEqualTo: widget.email)
-//           .get();
-
-//       if (querySnapshot.docs.isNotEmpty) {
-//         setState(() {
-//           fullName = querySnapshot.docs.first.data()['fullName'];
-//         });
-//       } else {
-//         setState(() {
-//           fullName = "No user found with this email.";
-//         });
-//       }
-//     } catch (e) {
-//       setState(() {
-//         fullName = "Error fetching fullName.";
-//       });
+      if (querySnapshot.docs.isNotEmpty) {
+        setState(() {
+          fullName = querySnapshot.docs.first.data()['fullName'];
+        });
+      } else {
+        setState(() {
+          fullName = "No user found with this email.";
+        });
+      }
+    } catch (e) {
+      setState(() {
+        fullName = "Error fetching fullName.";
+      });
    
-//     }
-//   }
-//  void initState() {
-//     super.initState();
-//    fetchFullName();
-//   }
-
-  List<Widget> NavBarBody = [
-    SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Welcome',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 23,
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.bold,
-                      )),
-               
-                //   fullName != null
-                // ? Text(
-                //     fullName!,
-                //     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                //   )
-                // : Text(
-                //     "Full Name not found",
-                //     style: TextStyle(color: Colors.red),
-                //   ),
+    }
+  }
 
 
+ List<Widget> NavBarBody = [
 
-
-                  // Text(  'Khan',
-                  //     style: TextStyle(
-                  //       fontFamily: 'Readex Pro',
-                  //       color: Color(0xFF488898),
-                  //       fontSize: 23,
-                  //       letterSpacing: 0,
-                  //       fontWeight: FontWeight.bold,
-                  //     )),
-                 Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(155, 0, 0, 0),
-                    child: InkWell(onTap: (){ 
-                      //  Navigator.pushReplacementNamed(context, PaymentMethodPage.id);
-                       } ,
-                      child: Icon(
+  SafeArea(
+     
+       
+     child: 
+        
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [ SizedBox(
+                height: 30,
+              ),
+                  Row(children: [ Text('Welcome',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  fontFamily: 'Readex Pro',
+                                  fontSize: 23,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                                   SizedBox(
+                              width: 5,
+                            ),
+                                    fullName != null
+                     ? Text(
+                         fullName!,
+                         style: TextStyle( fontFamily: 'Readex Pro',
+                                  color: Color(0xFF488898),
+                                  fontSize: 23,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.bold,),
+                       )
+                     : Text(
+                         "User",
+                         style: TextStyle(color: Colors.red, fontSize: 23,),
+                       ),
+                                
+                                 Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                    child:
+                     IconButton(onPressed: (){
+                    //   Navigator.push(
+                    //   context, MaterialPageRoute(builder: ( context) => CartPage()),
+                    // );
+                    null;
+                    } 
+                    , icon: Icon(
                         Icons.shopping_cart_outlined,
                         color: Colors.black,
                         size: 30,
-                      ),
-                    ),
+                      ),)
                   ),
-                ],
-              ),
-            ),
-            Padding(
+                   ],
+                  ),
+
+
+                    Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
               child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -334,21 +326,26 @@ String? fullName ;
                 ],
               ),
             ),
-          ],
-        ),
-      ),
-    ),
-    CoursesPage(),
+
+                                
+                ],
+              ),
+            ),
+          )
+        
+         
+ ),
+   
+
+ CoursesPage(),
     Search(),
     Chat(),
     ProfilePage()
   ];
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
+ final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
       body: Center(
@@ -390,5 +387,6 @@ String? fullName ;
         ],
       ),
     );
+  
   }
 }

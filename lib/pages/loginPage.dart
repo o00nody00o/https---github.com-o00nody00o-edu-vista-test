@@ -10,18 +10,17 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 class LoginPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
+  static TextEditingController emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   String? _errorMessage;
 
@@ -29,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     try {
       QuerySnapshot userSnapshot = await _firestore
           .collection('users')
-          .where('email', isEqualTo: _emailController.text.trim())
+          .where('email', isEqualTo: emailController.text.trim())
           .where('password', isEqualTo: _passwordController.text.trim())
           .get();
 
@@ -41,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
       }
 
       await _auth.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
+        email: emailController.text.trim(),
         password: _passwordController.text,
       );
 
@@ -72,23 +71,23 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30,vertical: 200),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 200),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
                 TextFieldsWidget(
-                    controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    labelText: 'email',
-                    ),
-        
-                                  SizedBox(height: 20),
-        
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  labelText: 'email',
+                ),
+                SizedBox(height: 20),
                 TextFieldsWidget(
-                    controller: _passwordController,
-                    labelText: 'password',hiddenPassword: true,),
-                       SizedBox(height: 10),
+                  controller: _passwordController,
+                  labelText: 'password',
+                  hiddenPassword: true,
+                ),
+                SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.only(left: 190),
                   child: InkWell(
@@ -112,10 +111,13 @@ class _LoginPageState extends State<LoginPage> {
                   height: 52,
                   child: ElevatedButton(
                     style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15))),
                         backgroundColor:
                             WidgetStateProperty.all(Color(0xFFEFC539))),
                     onPressed: _login,
-                    child: Text('Login',style: TextStyle(color: Colors.white, fontSize: 20)),
+                    child: Text('Login',
+                        style: TextStyle(color: Colors.white, fontSize: 20)),
                   ),
                 ),
                 if (_errorMessage != null)
@@ -123,15 +125,9 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
                       _errorMessage!,
-                      
                     ),
-        
-                    
                   ),
-        
-                 
-          SizedBox(height: 20),
-        
+                SizedBox(height: 20),
                 Text('Or sign up with',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -139,7 +135,6 @@ class _LoginPageState extends State<LoginPage> {
                       letterSpacing: 0,
                     )),
                 SizedBox(height: 20),
-        
                 Container(
                   width: 327,
                   height: 45,
@@ -149,7 +144,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 20),
-        
                 Padding(
                   padding: EdgeInsetsDirectional.only(top: 5, start: 40),
                   child: Row(children: [
@@ -175,9 +169,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ]),
                 ),
-        
-        
-                  
               ],
             ),
           ),
@@ -187,17 +178,3 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-// Placeholder HomePage, replace with actual implementation.
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
-        child: Text('Home Page'),
-      ),
-    );
-  }
-}

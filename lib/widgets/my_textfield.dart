@@ -46,7 +46,7 @@ class TextFieldsWidget extends StatelessWidget {
             color: const Color.fromARGB(255, 235, 233, 233),
             width: 2,
           ),
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(3),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(

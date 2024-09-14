@@ -13,13 +13,14 @@ import 'package:edu_vista_test/pages/choosePayment.dart';
 import 'package:edu_vista_test/pages/engcourse_details_page.dart';
 import 'package:edu_vista_test/pages/enghome_page.dart';
 import 'package:edu_vista_test/pages/engonboarding_page.dart';
-import 'package:edu_vista_test/pages/engreset_password_page.dart';
 import 'package:edu_vista_test/pages/engsplash_page.dart';
 import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
 import 'package:edu_vista_test/pages/loginPage.dart';
 import 'package:edu_vista_test/pages/payment.dart';
 import 'package:edu_vista_test/pages/profile.dart';
+import 'package:edu_vista_test/pages/resetPasswordPage.dart';
 import 'package:edu_vista_test/pages/resetpassword.dart';
+import 'package:edu_vista_test/pages/test.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -61,7 +62,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -87,8 +87,8 @@ class MyApp extends StatelessWidget {
           //   return MaterialPageRoute(builder: (context) => Loginpage());
           // case SignupPage.id:
           //   return MaterialPageRoute(builder: (context) => SignupPage());
-          case ResetPasswordPage.id:
-            return MaterialPageRoute(builder: (context) => ResetPasswordPage());
+          // case ResetPasswordPage.id:
+          //   return MaterialPageRoute(builder: (context) => ResetPasswordPage());
           case OnBoardingPage.id:
             return MaterialPageRoute(builder: (context) => OnBoardingPage());
           // case HomePage.id:
@@ -98,7 +98,8 @@ class MyApp extends StatelessWidget {
                 builder: (context) => CategoriesPage());
 
           default:
-            return MaterialPageRoute(builder: (context) => LoginPage());
+            return MaterialPageRoute(builder: (context) => DisplayFullNamePage
+            ());
         }
       },
       initialRoute: SplashPage.id,

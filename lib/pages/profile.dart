@@ -33,8 +33,8 @@ class _ProfilePageState extends State<ProfilePage> {
     if (user != null) {
       var userDoc = await _firestore.collection('users').doc(user.uid).get();
       setState(() {
-        _fullName = userDoc['fullName'] ?? '';
-        _email = userDoc['email'] ?? '';
+        _fullName = userDoc['fullName'] ?? 'unable to get the name';
+        _email = userDoc['email'] ?? 'unable to get the name';
         _profileImageUrl = userDoc['profileImageUrl'];
       });
     }
@@ -123,9 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
           _buildProfileOption('Setting', Icons.arrow_forward_ios, () {
             // Implement settings navigation
           }),
-          _buildProfileOption('Achievements', Icons.arrow_forward_ios, () {
-            // Implement achievements navigation
-          }),
+         
           _buildProfileOption('About Us', Icons.arrow_forward_ios, () {
             // Implement about us navigation
           }),

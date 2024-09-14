@@ -13,6 +13,201 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+class SignUpPage extends StatefulWidget {
+  @override
+  SignUpPageState createState() => SignUpPageState();
+}
+
+class SignUpPageState extends State<SignUpPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  final _formKey = GlobalKey<FormState>();
+  static TextEditingController emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  static TextEditingController nameController = TextEditingController();
+  String? _errorMessage;
+
+  Future<void> _signUp() async {
+    if (_passwordController.text != _confirmPasswordController.text) {
+      setState(() {
+        _errorMessage = "Passwords do not match!";
+      });
+      return;
+    }
+
+    try {
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: _passwordController.text,
+      );
+
+      await _firestore.collection('users').doc(userCredential.user!.uid).set({
+        'fullName': nameController.text,
+        'email': emailController.text,
+        'password': _passwordController.text,
+      });
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => LoginPage()), 
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        _errorMessage = e.message;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title:  Text('Sign Up',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Readex Pro',
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
+            )),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFieldsWidget(
+                  controller: nameController,
+                  keyboardType: TextInputType.name,
+                  labelText: 'Full Name ...',hiddenPassword: false,),
+              SizedBox(
+                height: 20,
+              ),
+              TextFieldsWidget(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                labelText: 'Email ...',hiddenPassword: false
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
+              TextFieldsWidget(
+                  controller: _passwordController,
+                  labelText: 'Password',hiddenPassword: true,),
+              SizedBox(
+                height: 20,
+              ),
+
+              TextFieldsWidget(
+                controller: _confirmPasswordController,
+                labelText: 'Confirm Password',hiddenPassword: true,
+              ),
+
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 190),
+                child: InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ForgotPasswordPage()),
+                  ),
+                  child: Text('Forgot password?',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontFamily: 'Readex Pro',
+                        color: Color(0xFFEFC539),
+                        letterSpacing: 0,
+                      )),
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                width: 327,
+                height: 52,
+                child: ElevatedButton(
+                  style: ButtonStyle(shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+                    backgroundColor: WidgetStateProperty.all(Color(0xFFEFC539)),
+                  ),
+                  onPressed: _signUp,
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
+              ),
+              if (_errorMessage != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Text(
+                    _errorMessage!,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              SizedBox(height: 20),
+
+              Text('Or sign up with',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Readex Pro',
+                    letterSpacing: 0,
+                  )),
+              SizedBox(height: 20),
+
+              Container(
+                width: 327,
+                height: 45,
+                child: Image.asset(
+                  'assets/images/face and google.PNG',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              SizedBox(height: 20),
+
+              Padding(
+                padding: EdgeInsetsDirectional.only(top: 5, start: 40),
+                child: Row(children: [
+                  Center(
+                    child: Text('You already have an account?',
+                        style: TextStyle(
+                          fontFamily: 'Readex Pro',
+                          letterSpacing: 0,
+                        )),
+                  ),
+                  SizedBox(width: 8),
+                  InkWell(
+                    onTap: () async => await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    ),
+                    child: Text('Login Here',
+                        style: TextStyle(
+                          fontFamily: 'Readex Pro',
+                          color: Color(0xFFEFC539),
+                          letterSpacing: 0,
+                        )),
+                  ),
+                ]),
+              ),
+              // )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
 // class LoginPage extends StatefulWidget {
 //   const LoginPage({super.key});
 
@@ -292,192 +487,3 @@ import 'package:provider/provider.dart';
 // }
 
 
-
-
-
-class SignUpPage extends StatefulWidget {
-  @override
-  _SignUpPageState createState() => _SignUpPageState();
-}
-
-class _SignUpPageState extends State<SignUpPage> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
-  String? _errorMessage;
-
-  Future<void> _signUp() async {
-    if (_passwordController.text != _confirmPasswordController.text) {
-      setState(() {
-        _errorMessage = "Passwords do not match!";
-      });
-      return;
-    }
-
-    try {
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-
-      await _firestore.collection('users').doc(userCredential.user!.uid).set({
-        'fullName': _nameController.text,
-        'email': _emailController.text,
-        'password': _passwordController.text,
-      });
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) => LoginPage()), // Navigate to login page
-      );
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        _errorMessage = e.message;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign Up', style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 70),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFieldsWidget(
-                  controller: _nameController,
-                  keyboardType: TextInputType.name,
-                  labelText: 'Full Name ...',hiddenPassword: false,),
-              SizedBox(
-                height: 20,
-              ),
-              TextFieldsWidget(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                labelText: 'Email ...',hiddenPassword: false
-              ),
-              SizedBox(
-                height: 20,
-              ),
-
-              TextFieldsWidget(
-                  controller: _passwordController,
-                  labelText: 'Password',hiddenPassword: true,),
-              SizedBox(
-                height: 20,
-              ),
-
-              TextFieldsWidget(
-                controller: _confirmPasswordController,
-                labelText: 'Confirm Password',hiddenPassword: true,
-              ),
-
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(left: 190),
-                child: InkWell(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ForgotPasswordPage()),
-                  ),
-                  child: Text('Forgot password?',
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontFamily: 'Readex Pro',
-                        color: Color(0xFFEFC539),
-                        letterSpacing: 0,
-                      )),
-                ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                width: 327,
-                height: 52,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Color(0xFFEFC539)),
-                  ),
-                  onPressed: _signUp,
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ),
-              ),
-              if (_errorMessage != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Text(
-                    _errorMessage!,
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              SizedBox(height: 20),
-
-              Text('Or sign up with',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Readex Pro',
-                    letterSpacing: 0,
-                  )),
-              SizedBox(height: 20),
-
-              Container(
-                width: 327,
-                height: 45,
-                child: Image.asset(
-                  'assets/images/face and google.PNG',
-                  fit: BoxFit.fill,
-                ),
-              ),
-              SizedBox(height: 20),
-
-              Padding(
-                padding: EdgeInsetsDirectional.only(top: 5, start: 40),
-                child: Row(children: [
-                  Center(
-                    child: Text('You already have an account?',
-                        style: TextStyle(
-                          fontFamily: 'Readex Pro',
-                          letterSpacing: 0,
-                        )),
-                  ),
-                  SizedBox(width: 8),
-                  InkWell(
-                    onTap: () async => await Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                    ),
-                    child: Text('Login Here',
-                        style: TextStyle(
-                          fontFamily: 'Readex Pro',
-                          color: Color(0xFFEFC539),
-                          letterSpacing: 0,
-                        )),
-                  ),
-                ]),
-              ),
-              // )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
