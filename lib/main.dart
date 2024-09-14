@@ -9,17 +9,17 @@ import 'package:edu_vista_test/engcubid/eng_auth_cubit.dart';
 import 'package:edu_vista_test/engutils/color_utilis.dart';
 import 'package:edu_vista_test/firebase_options.dart';
 import 'package:edu_vista_test/pages/categoriesPage.dart';
-import 'package:edu_vista_test/pages/eng_login_page.dart';
-import 'package:edu_vista_test/pages/eng_signup.dart';
+import 'package:edu_vista_test/pages/choosePayment.dart';
 import 'package:edu_vista_test/pages/engcourse_details_page.dart';
 import 'package:edu_vista_test/pages/enghome_page.dart';
 import 'package:edu_vista_test/pages/engonboarding_page.dart';
 import 'package:edu_vista_test/pages/engreset_password_page.dart';
 import 'package:edu_vista_test/pages/engsplash_page.dart';
 import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
+import 'package:edu_vista_test/pages/loginPage.dart';
+import 'package:edu_vista_test/pages/payment.dart';
+import 'package:edu_vista_test/pages/profile.dart';
 import 'package:edu_vista_test/pages/resetpassword.dart';
-import 'package:edu_vista_test/pages/signUpPage.dart';
-import 'package:edu_vista_test/pages/test.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder, // Wraps the app with Device Preview
       scrollBehavior: _CustomScrollBehaviour(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+     
       theme: ThemeData(
         scaffoldBackgroundColor: ColorUtility.gbScaffold,
         fontFamily: ' PlusJakartaSans',
@@ -81,10 +81,12 @@ class MyApp extends StatelessWidget {
         final String routeName = settings.name ?? '';
         final dynamic data = settings.arguments;
         switch (routeName) {
-          case LoginPage.id:
-            return MaterialPageRoute(builder: (context) => LoginPage());
-          case SignupPage.id:
-            return MaterialPageRoute(builder: (context) => SignupPage());
+           case PaymentMethodPage.id:
+            return MaterialPageRoute(builder: (context) => PaymentMethodPage());
+          // case Loginpage.id:
+          //   return MaterialPageRoute(builder: (context) => Loginpage());
+          // case SignupPage.id:
+          //   return MaterialPageRoute(builder: (context) => SignupPage());
           case ResetPasswordPage.id:
             return MaterialPageRoute(builder: (context) => ResetPasswordPage());
           case OnBoardingPage.id:
@@ -96,7 +98,7 @@ class MyApp extends StatelessWidget {
                 builder: (context) => CategoriesPage());
 
           default:
-            return MaterialPageRoute(builder: (context) => CategoriesPage());
+            return MaterialPageRoute(builder: (context) => LoginPage());
         }
       },
       initialRoute: SplashPage.id,

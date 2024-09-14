@@ -1,6 +1,6 @@
 
-import 'package:edu_vista_test/pages/eng_login_page.dart';
-import 'package:edu_vista_test/pages/eng_signup.dart';
+// ignore_for_file: unused_import
+
 import 'package:edu_vista_test/pages/loginPage.dart';
 import 'package:edu_vista_test/pages/signUpPage.dart';
 import 'package:edu_vista_test/widgets/eng_color.dart';
@@ -130,13 +130,14 @@ class _AuthTemplateWidgetState extends State<AuthTemplateWidget> {
                 const SizedBox(
                   width: 10,
                 ),
-                CustomTextButton(
-                  label: isLogin ? 'Sign Up' : 'Login',
-                  onPressed: () {
-                    Navigator.pushNamed(
-                        context, isLogin ? SignupPage.id : LoginPage.id);
-                  },
-                )
+                // CustomTextButton(
+                //   label: isLogin ? 'Sign Up' : 'Login',
+                //   onPressed: () {
+                //     Navigator.pushNamed(
+                //         // context, isLogin ? SignUpPage.id : LoginPage.id
+                //         );
+                //   },
+                // )
               ],
             ),
             const SizedBox(

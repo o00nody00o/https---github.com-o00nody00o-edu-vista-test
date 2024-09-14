@@ -1,11 +1,14 @@
 
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
+
 import 'package:edu_vista_test/engutils/color_utilis.dart';
 import 'package:edu_vista_test/engutils/image_utility.dart';
 import 'package:edu_vista_test/engwidgets/custom_elevated_button.dart';
 import 'package:edu_vista_test/engwidgets/onboarding/elevated_button_rounded.dart';
 import 'package:edu_vista_test/engwidgets/onboarding/onboard_indicator.dart';
 import 'package:edu_vista_test/engwidgets/onboarding/onboard_item_widget.dart';
-import 'package:edu_vista_test/pages/eng_login_page.dart';
+import 'package:edu_vista_test/pages/LoginPage.dart';
+import 'package:edu_vista_test/pages/SignUpPage.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
 import 'package:flutter/material.dart';
 // import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -174,7 +177,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         Icons.arrow_back,
                         size: 30,
                       ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                         ColorUtility.grayLight,
                       ),
                     ),
@@ -188,7 +191,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         Icons.arrow_forward,
                         size: 30,
                       ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                         ColorUtility.deepYellow,
                       ),
                     ),
@@ -210,6 +213,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void onLogin() {
     PreferencesService.isOnBoardingSeen = true;
-    Navigator.pushReplacementNamed(context, LoginPage.id);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()), 
+    );
   }
 }

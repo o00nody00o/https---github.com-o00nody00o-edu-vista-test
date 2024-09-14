@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, file_names
 
 import 'package:edu_vista_test/pages/chat.dart';
 import 'package:edu_vista_test/pages/courses.dart';
-import 'package:edu_vista_test/pages/eng_login_page.dart';
+import 'package:edu_vista_test/pages/payment.dart';
 import 'package:edu_vista_test/pages/profile.dart';
 import 'package:edu_vista_test/pages/search.dart';
 import 'package:edu_vista_test/pages/signUpPage.dart';
@@ -58,10 +58,14 @@ class _CategoriesPageState extends State<CategoriesPage> {
                       )),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(155, 0, 0, 0),
-                    child: Icon(
-                      Icons.shopping_cart_outlined,
-                      color: Colors.black,
-                      size: 30,
+                    child: InkWell(onTap: (){ 
+                      //  Navigator.pushReplacementNamed(context, PaymentMethodPage.id);
+                       } ,
+                      child: Icon(
+                        Icons.shopping_cart_outlined,
+                        color: Colors.black,
+                        size: 30,
+                      ),
                     ),
                   ),
                 ],
@@ -265,9 +269,8 @@ class _CategoriesPageState extends State<CategoriesPage> {
                           courseName: 'Linux for beginners',
                         ),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Padding(
+                      
+                        Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
                             child: mycourse(
@@ -276,7 +279,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                               price: '24.50',
                               courseName: 'Machine Learning',
                             )),
-                      ),
+                     
                     ],
                   ),
                 ],
@@ -289,7 +292,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
     CoursesPage(),
     Search(),
     Chat(),
-    Profile()
+    ProfilePage()
   ];
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
