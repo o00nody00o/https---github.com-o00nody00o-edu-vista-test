@@ -6,22 +6,29 @@ import 'package:device_preview/device_preview.dart';
 import 'package:edu_vista_test/engblocs/course/course_bloc.dart';
 import 'package:edu_vista_test/engblocs/lecture/lecture_bloc.dart';
 import 'package:edu_vista_test/engcubid/eng_auth_cubit.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/ChatWindow.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/ChatsPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/SearchPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/categoriesPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/checkoutPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/myHomepage.dart';
+// import 'package:edu_vista_test/pages/test.dart';
 import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:edu_vista_test/firebase_options.dart';
-import 'package:edu_vista_test/pages/PaymentMethodPage.dart';
-import 'package:edu_vista_test/pages/cart.dart';
-import 'package:edu_vista_test/pages/categoriesPage.dart';
-import 'package:edu_vista_test/pages/PaymentSelectionPage.dart';
-import 'package:edu_vista_test/pages/CourseDetailsPage.dart';
-import 'package:edu_vista_test/pages/HomePage.dart';
-import 'package:edu_vista_test/pages/onboarding_page.dart';
-import 'package:edu_vista_test/pages/splash_page.dart';
-import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
-import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/profile.dart';
-import 'package:edu_vista_test/pages/resetPasswordPage.dart';
-import 'package:edu_vista_test/pages/resetpassword.dart';
-import 'package:edu_vista_test/pages/test.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/PaymentcardPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/CartPage.dart';
+// import 'package:edu_vista_test/pages/categoriesPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/ChoosePaymentPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/CourseDetailsPage.dart';
+// import 'package:edu_vista_test/pages/HomePage.dart';
+import 'package:edu_vista_test/pages/on%20start/onboarding_page.dart';
+import 'package:edu_vista_test/pages/on%20start/splash_page.dart';
+// import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/loginPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/ProfilePage.dart';
+import 'package:edu_vista_test/pages/account/resetPasswordPage.dart';
+import 'package:edu_vista_test/pages/account/resetpassword.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/myHomepage.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -82,8 +89,8 @@ class MyApp extends StatelessWidget {
         final String routeName = settings.name ?? '';
         final dynamic data = settings.arguments;
         switch (routeName) {
-           case PaymentMethodPage.id:
-            return MaterialPageRoute(builder: (context) => PaymentMethodPage());
+           case PaymentcardPage.id:
+            return MaterialPageRoute(builder: (context) => PaymentcardPage());
          
           case OnBoardingPage.id:
             return MaterialPageRoute(builder: (context) => OnBoardingPage());
@@ -93,7 +100,7 @@ class MyApp extends StatelessWidget {
                 builder: (context) => CategoriesPage());
 
           default:
-            return MaterialPageRoute(builder: (context) => PaymentSelectionPage
+            return MaterialPageRoute(builder: (context) => myHomepage
             ());
         }
       },

@@ -1,10 +1,14 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, sized_box_for_whitespace, library_private_types_in_public_api, use_build_context_synchronously
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, sized_box_for_whitespace, library_private_types_in_public_api, use_build_context_synchronously, deprecated_member_use
 
-import 'package:edu_vista_test/pages/HomePage.dart';
-import 'package:edu_vista_test/pages/categoriesPage.dart';
-import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
-import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/signUpPage.dart';
+// import 'package:edu_vista_test/pages/HomePage.dart';
+import 'package:edu_vista_test/pages/account/SignUpPage.dart';
+import 'package:edu_vista_test/pages/account/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/categoriesPage.dart';
+// import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/loginPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/myHomepage.dart';
+// import 'package:edu_vista_test/pages/signUpPage.dart';
+// import 'package:edu_vista_test/pages/test.dart';
 import 'package:edu_vista_test/widgets/my_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -46,7 +50,7 @@ class LoginPageState extends State<LoginPage> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => myHomepage( )),
       );
     } on FirebaseAuthException catch (e) {
       setState(() {

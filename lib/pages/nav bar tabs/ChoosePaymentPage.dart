@@ -1,22 +1,26 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:edu_vista_test/pages/PaymentMethodPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/PaymentcardPage.dart';
 import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 
-class PaymentSelectionPage extends StatefulWidget {
+class ChoosePaymentPage extends StatefulWidget {
   @override
-  _PaymentSelectionPageState createState() => _PaymentSelectionPageState();
+  _ChoosePaymentPageState createState() => _ChoosePaymentPageState();
 }
 
-class _PaymentSelectionPageState extends State<PaymentSelectionPage> {
-  String _selectedPaymentMethod = 'Card'; // Default selected method
+class _ChoosePaymentPageState extends State<ChoosePaymentPage> {
+  String _selectedPaymentMethod = 'Card'; 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Payment Method', style: TextStyle(color: Colors.black)),
+        title: Text('Payment Method',  style: TextStyle(
+              fontFamily: 'Readex Pro',
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
+            )),
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
@@ -26,21 +30,22 @@ class _PaymentSelectionPageState extends State<PaymentSelectionPage> {
         ),
         elevation: 0,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              'Select Your Payment Method',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Select Your Payment Method',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          // _buildPaymentOption('PayPal'),
-          // _buildPaymentOption('Apple Pay'),
-          // _buildPaymentOption('Google Pay'),
-          _buildPaymentOption('Paymob'),
-        ],
+           
+            _buildPaymentOption('Paymob'),
+          ],
+        ),
       ),
     );
   }
@@ -78,7 +83,7 @@ class _PaymentSelectionPageState extends State<PaymentSelectionPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PaymentMethodPage(),
+        builder: (context) => PaymentcardPage(),
       ),
     );
   }

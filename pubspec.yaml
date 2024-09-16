@@ -53,6 +53,7 @@ dependencies:
   shared_preferences: ^2.2.3
   device_preview: ^1.2.0
   get_controller_plus: ^0.2.1
+  msh_checkbox: ^2.0.1
   fluttertoast:
   image_picker: 
  

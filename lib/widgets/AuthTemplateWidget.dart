@@ -1,8 +1,8 @@
 
 // ignore_for_file: unused_import
 
-import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/signUpPage.dart';
+// import 'package:edu_vista_test/pages/loginPage.dart';
+// import 'package:edu_vista_test/pages/signUpPage.dart';
 import 'package:edu_vista_test/widgets/ColorUtility.dart';
 import 'package:edu_vista_test/widgets/CustomElevatedButton.dart';
 import 'package:edu_vista_test/widgets/CustomTextButton.dart';

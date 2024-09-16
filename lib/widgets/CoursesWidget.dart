@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista_test/model/engcourse.dart';
-import 'package:edu_vista_test/pages/CourseDetailsPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/CourseDetailsPage.dart';
 import 'package:flutter/material.dart';
 
 class CoursesWidget extends StatefulWidget {

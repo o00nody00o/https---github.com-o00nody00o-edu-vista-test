@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously, library_private_types_in_public_api, prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista_test/pages/LoginPage.dart';
-import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/LoginPage.dart';
+import 'package:edu_vista_test/pages/account/LoginPage.dart';
+import 'package:edu_vista_test/pages/account/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
 import 'package:edu_vista_test/widgets/my_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

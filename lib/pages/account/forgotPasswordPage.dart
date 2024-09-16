@@ -2,7 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista_test/utils/color_utilis.dart';
-import 'package:edu_vista_test/pages/LoginPage.dart';
+import 'package:edu_vista_test/pages/account/LoginPage.dart';
 import 'package:edu_vista_test/widgets/my_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';

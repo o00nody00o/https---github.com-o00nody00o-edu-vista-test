@@ -1,0 +1,127 @@
+[
+    {
+      "id": "1",
+      "courseTitle": "Introduction to Python",
+      "imageUrl": "https://learnersgalaxy.ai/wp-content/uploads/2024/01/Python-Symbol.png",
+      "teacher": "Alice Johnson",
+      "price": 19.99
+    },
+    {
+      "id": "2",
+      "courseTitle": "Advanced Java Programming",
+      "imageUrl": "https://5.imimg.com/data5/QQ/CT/AO/GLADMIN-25397883/selection-064-1000x1000.png",
+      "teacher": "Bob Smith",
+      "price": 25.00
+    },
+    {
+      "id": "20",
+      "courseTitle": "Data Structures and Algorithms",
+      "imageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--H0AdlIEN--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/srnvrd7vfeeq5qpxnabq.png",
+      "teacher": "John Doe",
+      "price": 18.50
+    },
+    {
+        "id": "3",
+        "courseTitle": "ADCL",
+        "imageUrl": "https://static.wixstatic.com/media/3e17ab_bba2af5fced14d9d948bc864ed5ba58e~mv2.png/v1/fill/w_390,h_390,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logo_ADCL_Bleu.png",
+        "teacher": "John",
+        "price": 18.50
+      }, {
+        "id": "4",
+        "courseTitle": "Data Structures and Algorithms",
+        "imageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--H0AdlIEN--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/srnvrd7vfeeq5qpxnabq.png",
+        "teacher": "Doe",
+        "price": 18.50
+      }, {
+        "id": "5",
+        "courseTitle": "c programming",
+        "imageUrl": "https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2F4087150%2Fcover_image%2Fretina_500x200%2Fcover-0828_AfterAllTheseYearstheWorldisStillPoweredbyCProgramming_Razvan_Newsletter-f6055ebd7fd2dcf631141dc5acc0f8b5.png",
+        "teacher": "Alice",
+        "price": 14.50
+      }, {
+        "id": "6",
+        "courseTitle": "smart intelligence",
+        "imageUrl": "https://images.inc.com/uploaded_files/image/1920x1080/getty_667379906_2000126920009280277_350391.jpg",
+        "teacher": "ahmed",
+        "price": 50.50
+      }, {
+        "id": "7",
+        "courseTitle": "computer science",
+        "imageUrl": "https://oaustech.edu.ng/media/k2/items/cache/5288462d048e0d3f60f64bb84cff6df4_M.jpg",
+        "teacher": "nada",
+        "price": 20.50
+      }, {
+        "id": "8",
+        "courseTitle": "Advanced Java Programming",
+        "imageUrl": "https://5.imimg.com/data5/QQ/CT/AO/GLADMIN-25397883/selection-064-1000x1000.png",
+        "teacher": "ali",
+        "price": 100.50
+      }, {
+        "id": "9",
+        "courseTitle": "ADCL",
+        "imageUrl": "https://static.wixstatic.com/media/3e17ab_bba2af5fced14d9d948bc864ed5ba58e~mv2.png/v1/fill/w_390,h_390,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logo_ADCL_Bleu.png",
+        "teacher": "jack",
+        "price": 11.50
+      }, {
+        "id": "10",
+        "courseTitle": "Data Structures and Algorithms",
+        "imageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--H0AdlIEN--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/srnvrd7vfeeq5qpxnabq.png",
+        "teacher": "rose",
+        "price": 18.50
+      }, {
+        "id": "11",
+        "courseTitle": "Introduction to Python",
+        "imageUrl": "https://learnersgalaxy.ai/wp-content/uploads/2024/01/Python-Symbol.png",
+        "teacher": "jasmen",
+        "price": 19.50
+      }, {
+        "id": "12",
+        "courseTitle": "computer science",
+        "imageUrl": "https://oaustech.edu.ng/media/k2/items/cache/5288462d048e0d3f60f64bb84cff6df4_M.jpg",
+        "teacher": "fady",
+        "price": 15.50
+      }, {
+        "id": "13",
+        "courseTitle": "ADCL",
+        "imageUrl": "https://static.wixstatic.com/media/3e17ab_bba2af5fced14d9d948bc864ed5ba58e~mv2.png/v1/fill/w_390,h_390,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Logo_ADCL_Bleu.png",
+        "teacher": "mahmoud",
+        "price": 13.50
+      }, {
+        "id": "14",
+        "courseTitle": "Data Structures and Algorithms",
+        "imageUrl": "https://res.cloudinary.com/practicaldev/image/fetch/s--H0AdlIEN--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/srnvrd7vfeeq5qpxnabq.png",
+        "teacher": "roger",
+        "price": 17.50
+      }, {
+        "id": "15",
+        "courseTitle": "Advanced Java Programming",
+        "imageUrl": "https://5.imimg.com/data5/QQ/CT/AO/GLADMIN-25397883/selection-064-1000x1000.png",
+        "teacher": "benjamen",
+        "price": 18.50
+      }, {
+        "id": "16",
+        "courseTitle": "scratch basics",
+        "imageUrl": "https://ineasysteps.com/wp-content/uploads/2022/06/97818407861251-scaled-1-scaled.jpg",
+        "teacher": "mohamed",
+        "price": 14.50
+      }, {
+        "id": "17",
+        "courseTitle": "scratch basics",
+        "imageUrl": "https://ineasysteps.com/wp-content/uploads/2022/06/97818407861251-scaled-1-scaled.jpg",
+        "teacher": "robert",
+        "price": 18.50
+      }, {
+        "id": "18",
+        "courseTitle": "c++ basics",
+        "imageUrl": "https://blog.jetbrains.com/wp-content/uploads/2023/03/Blog_Featured_image_1280x600-9-1.png",
+        "teacher": "John Doe",
+        "price": 40.50
+      }, {
+        "id": "19",
+        "courseTitle": "c programming",
+        "imageUrl": "https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2F4087150%2Fcover_image%2Fretina_500x200%2Fcover-0828_AfterAllTheseYearstheWorldisStillPoweredbyCProgramming_Razvan_Newsletter-f6055ebd7fd2dcf631141dc5acc0f8b5.png",
+        "teacher": "lisa",
+        "price": 18.50
+      }
+  ]
+  

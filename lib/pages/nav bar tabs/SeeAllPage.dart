@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class Chat extends StatefulWidget {
-  const Chat({super.key});
+class SeeAllPage extends StatefulWidget {
+  const SeeAllPage({super.key});
 
   @override
-  State<Chat> createState() => _ChatState();
+  State<SeeAllPage> createState() => _SeeAllPageState();
 }
 
-class _ChatState extends State<Chat> {
+class _SeeAllPageState extends State<SeeAllPage> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

@@ -1,35 +1,34 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, file_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista_test/pages/cart.dart';
-import 'package:edu_vista_test/pages/chat.dart';
-import 'package:edu_vista_test/pages/courses.dart';
-import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/profile.dart';
-import 'package:edu_vista_test/pages/search.dart';
+import 'package:edu_vista_test/pages/account/LoginPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/ChatsPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/courses.dart';
+// import 'package:edu_vista_test/pages/loginPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/ProfilePage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/SearchPage.dart';
 import 'package:edu_vista_test/widgets/CategoriesFilter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class Categorypage extends StatefulWidget {
-   TextEditingController? email = LoginPageState.emailController; // Assuming you're passing the user's email to fetch their fullName
-
-  Categorypage({ this.email});
+class CategoriesPage extends StatefulWidget {
+   TextEditingController? email = LoginPageState.emailController;
+  static const String id = 'Categories';
+   CategoriesPage({super.key,this.email});
 
   @override
-  CategorypageState createState() => CategorypageState();
+  State<CategoriesPage> createState() => _CategoriesPageState();
 }
 
-class CategorypageState extends State<Categorypage> {
-  static String? fullName;
-  int currentIndex = 0;
-BuildContext get context;
-  @override
-  void initState() {
-    super.initState();
-    fetchFullName();
-  }
+class _CategoriesPageState extends State<CategoriesPage> {
 
-  Future<void> fetchFullName() async {
+String? fullName ;
+ final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  int currentIndex = 0;
+
+
+ Future<void> fetchFullName() async {
     try {
       final querySnapshot = await FirebaseFirestore.instance
           .collection('users')
@@ -52,67 +51,72 @@ BuildContext get context;
    
     }
   }
+ void initState() {
+    super.initState();
+   fetchFullName();
+  }
+
+  List<Widget> NavBarBody = [
+    SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Welcome',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 23,
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.bold,
+                      )),
+               
+                //   fullName != null
+                // ? Text(
+                //     fullName!,
+                //     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                //   )
+                // : Text(
+                //     "Full Name not found",
+                //     style: TextStyle(color: Colors.red),
+                //   ),
 
 
- List<Widget> NavBarBody = [
 
-  SafeArea(
-     
-       
-     child: 
-        
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [ SizedBox(
-                height: 30,
-              ),
-                  Row(children: [ Text('Welcome',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 23,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                                   SizedBox(
-                              width: 5,
-                            ),
-                                    fullName != null
-                     ? Text(
-                         fullName!,
-                         style: TextStyle( fontFamily: 'Readex Pro',
-                                  color: Color(0xFF488898),
-                                  fontSize: 23,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.bold,),
-                       )
-                     : Text(
-                         "User",
-                         style: TextStyle(color: Colors.red, fontSize: 23,),
-                       ),
-                                
-                                 Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
-                    child:
-                     IconButton(onPressed: (){
-                    //   Navigator.push(
-                    //   context, MaterialPageRoute(builder: ( context) => CartPage()),
-                    // );
-                    null;
-                    } 
-                    , icon: Icon(
+
+                  // Text(  'Khan',
+                  //     style: TextStyle(
+                  //       fontFamily: 'Readex Pro',
+                  //       color: Color(0xFF488898),
+                  //       fontSize: 23,
+                  //       letterSpacing: 0,
+                  //       fontWeight: FontWeight.bold,
+                  //     )),
+                 Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(155, 0, 0, 0),
+                    child: InkWell(onTap: (){ 
+                      //  Navigator.pushReplacementNamed(context, PaymentMethodPage.id);
+                       } ,
+                      child: Icon(
                         Icons.shopping_cart_outlined,
                         color: Colors.black,
                         size: 30,
-                      ),)
+                      ),
+                    ),
                   ),
-                   ],
-                  ),
-
-
-                    Padding(
+                ],
+              ),
+            ),
+            Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
               child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -326,26 +330,21 @@ BuildContext get context;
                 ],
               ),
             ),
-
-                                
-                ],
-              ),
-            ),
-          )
-        
-         
- ),
-   
-
- CoursesPage(),
-    Search(),
-    Chat(),
+          ],
+        ),
+      ),
+    ),
+    CoursesPage(),
+    SearchPage(),
+    ChatsPage(),
     ProfilePage()
   ];
- final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
       body: Center(
@@ -387,6 +386,5 @@ BuildContext get context;
         ],
       ),
     );
-  
   }
 }

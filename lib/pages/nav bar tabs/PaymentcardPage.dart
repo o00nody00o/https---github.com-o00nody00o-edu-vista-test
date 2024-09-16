@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, library_private_types_in_public_api
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +7,14 @@ import 'package:paymob_payment/paymob_payment.dart';
 
 
 
-class PaymentMethodPage extends StatefulWidget {
+class PaymentcardPage extends StatefulWidget {
     static const String id = 'PaymentMethodPage';
 
   @override
-  _PaymentMethodPageState createState() => _PaymentMethodPageState();
+  _PaymentcardPageState createState() => _PaymentcardPageState();
 }
 
-class _PaymentMethodPageState extends State<PaymentMethodPage> {
+class _PaymentcardPageState extends State<PaymentcardPage> {
   final TextEditingController _cardNumberController = TextEditingController();
   final TextEditingController _expiryDateController = TextEditingController();
   final TextEditingController _cvvController = TextEditingController();
@@ -83,13 +83,13 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
             SizedBox(height: 24),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow,
+                backgroundColor: const Color(0xffF5BB06),
                 padding: EdgeInsets.symmetric(vertical: 16),
                 minimumSize: Size(double.infinity, 50),
               ),
               onPressed: 
-              // _processPayment,
-              null,
+              _processPayment,
+             
               child: Text(
                 'CONTINUE',
                 style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -100,7 +100,6 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
       ),
     );
   }
-
   Widget _buildTextField({
     required TextEditingController controller,
     required String label,
@@ -117,73 +116,83 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
       ),
     );
   }
-
-  // Future<void> _processPayment() async {
-  //   if (_cardNumberController.text.isEmpty ||
-  //       _expiryDateController.text.isEmpty ||
-  //       _cvvController.text.isEmpty ||
-  //       _phoneController.text.isEmpty) {
-  //     _showMessage('Please fill in all fields.');
-  //     return;
-  //   }
-
-  //   try {
+//+++++++++++++++++++++ if fields are empty ++++++++++++++++++++++++++++++++++++++++++++++++
+  Future<void> _processPayment() async {
+    if (_cardNumberController.text.isEmpty ||
+        _expiryDateController.text.isEmpty ||
+        _cvvController.text.isEmpty ||
+        _phoneController.text.isEmpty) {
+      _showMessage('Please fill in all fields.');
+      return;
+    }
+//+++++++++++++++++++++++++++++++  payment +++++++++++++++++++++++++++++++++++++++++++++++
+    try {
      
-  //     PaymobPayment paymobPayment = PaymobPayment(apiKey: apiKey);
+      PaymobPayment paymobPayment = PaymobPayment(
+        // apiKey: apiKey
+        );
 
     
-  //     final order = await paymobPayment.createOrder(
-  //       amountCents: 1000, 
-  //       currency: 'Dollar',
-  //       merchantOrderId: 'order_${DateTime.now().millisecondsSinceEpoch}',
-  //     );
+      final order = await paymobPayment.createOrder(
+        amountCents: 1000, 
+        currency: 'Dollar',
+        merchantOrderId: 'order_${DateTime.now().millisecondsSinceEpoch}',
+      );
 
-  //     final paymentKey = await paymobPayment.createPaymentKey(
-  //       orderId: order.id,
-  //       amountCents: 1000,
-  //       currency: 'EGP',
-  //       integrationId: integrationId,
-  //       billingData: {
-  //         'first_name': 'John',
-  //         'last_name': 'Doe',
-  //         'phone_number': _phoneController.text,
-  //         'email': EmailAuthCredential,
-  //         'country': 'EG',
-  //       },
-  //     );
+      final paymentKey = await paymobPayment.createPaymentKey(
+        orderId: order.id,
+        amountCents: 1000,
+        currency: '\$',
+        integrationId: integrationId,
+        billingData: {
+          'first_name': 'John',
+          'last_name': 'Doe',
+          'phone_number': _phoneController.text,
+          'email': EmailAuthCredential,
+          'country': 'EG',
+        },
+      );
 
-  //     final paymentResult = await paymobPayment.payWithCard(
-  //       paymentKey: paymentKey.token,
-  //       cardNumber: _cardNumberController.text,
-  //       cardExpiry: _expiryDateController.text, 
-  //       cardCvv: _cvvController.text,
-  //     );
+      final paymentResult = await paymobPayment.payWithCard(
+        paymentKey: paymentKey.token,
+        cardNumber: _cardNumberController.text,
+        cardExpiry: _expiryDateController.text, 
+        cardCvv: _cvvController.text,
+      );
 
-  //     if (paymentResult.success) {
-  //       _showMessage('Payment Successful!');
-  //       _savePaymentDetails(paymentResult.transactionId);
-  //     } else {
-  //       _showMessage('Payment Failed: ${paymentResult.errorMessage}');
-  //     }
-  //   } catch (e) {
-  //     _showMessage('Error occurred: $e');
-  //   }
-  // }
-
-  // Future<void> _savePaymentDetails(String transactionId) async {
-  //   try {
-  //     await _firestore.collection('payments').add({
-  //       'transactionId': transactionId,
-  //       'amount': 10.0, 
-  //       'timestamp': FieldValue.serverTimestamp(),
-  //     });
-  //     _showMessage('Payment details saved successfully.');
-  //   } catch (e) {
-  //     _showMessage('Failed to save payment details: $e');
-  //   }
-  // }
-
-  // void _showMessage(String message) {
-  //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+      if (paymentResult.success) {
+        _showMessage('Payment Successful!');
+        _savePaymentDetails(paymentResult.transactionId);
+      } else {
+        _showMessage('Payment Failed: ${paymentResult.errorMessage}');
+      }
+    } catch (e) {
+      _showMessage('Error occurred: $e');
+    }
   }
-// }
+//+++++++++++++++++  save the payment ++++++++++++++++++++++++++++++++++++++
+  Future<void> _savePaymentDetails(String transactionId) async {
+    try {
+      await _firestore.collection('payments').add({
+        'transactionId': transactionId,
+        'amount': 10.0, 
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+      _showMessage('Payment details saved successfully.');
+    } catch (e) {
+      _showMessage('Failed to save payment details: $e');
+    }
+  }
+
+  void _showMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message,style: TextStyle(fontSize: 18),)));
+  }
+}
+
+extension on PaymobPayment {
+  payWithCard({required paymentKey, required String cardNumber, required String cardExpiry, required String cardCvv}) {}
+  
+  createPaymentKey({required orderId, required int amountCents, required String currency, required String integrationId, required Map<String, Object> billingData}) {}
+  
+  createOrder({required int amountCents, required String currency, required String merchantOrderId}) {}
+}

@@ -2,9 +2,11 @@
 
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:edu_vista_test/pages/LoginPage.dart';
-import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
-import 'package:edu_vista_test/pages/signUpPage.dart';
+import 'package:edu_vista_test/pages/account/LoginPage.dart';
+import 'package:edu_vista_test/pages/account/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/LoginPage.dart';
+// import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
+// import 'package:edu_vista_test/pages/signUpPage.dart';
 import 'package:edu_vista_test/widgets/my_textfield.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

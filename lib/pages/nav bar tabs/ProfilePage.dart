@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 
-import 'package:edu_vista_test/pages/LoginPage.dart';
-import 'package:edu_vista_test/pages/cart.dart';
+import 'package:edu_vista_test/pages/account/LoginPage.dart';
+import 'package:edu_vista_test/pages/nav%20bar%20tabs/CartPage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
