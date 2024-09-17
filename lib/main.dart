@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
             return MaterialPageRoute(builder: (context) => OnBoardingPage());
 
           default:
-            return MaterialPageRoute(builder: (context) => LoginPage());
+            return MaterialPageRoute(builder: (context) =>SplashPage());
         }
       },
       initialRoute: SplashPage.id,

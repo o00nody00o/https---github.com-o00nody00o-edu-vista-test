@@ -12,10 +12,10 @@ class _CoursesPageState extends State<CoursesPage> {
   String selectedTab = 'All';
   List<String> filterTabs = [
     'All',
-    'Java',
+    'java',
     'C++',
     'C+',
-    'Python',
+    'python',
     'Flutter',
     'Machine Learning',
     'UX/UI',

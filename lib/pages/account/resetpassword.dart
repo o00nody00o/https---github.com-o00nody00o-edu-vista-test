@@ -38,8 +38,13 @@ class _ResetPasswordState extends State<ResetPassword> {
                 child: Text(
                   'Password updated successfully \^_^/',
                   style: TextStyle(color: Colors.black, fontSize: 20),
+                  
                 ),
               )));
+               Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          );
 
           //  sign out the user or navigate to a login screen
         } else {
