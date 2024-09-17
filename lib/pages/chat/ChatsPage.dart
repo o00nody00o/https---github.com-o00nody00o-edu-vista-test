@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, library_private_types_in_public_api
 
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/CartPage.dart';
+import 'package:edu_vista_test/pages/cart/CartPage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'ChatWindow.dart'; 

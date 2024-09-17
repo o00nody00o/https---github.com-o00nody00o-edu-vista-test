@@ -1,9 +1,7 @@
 
 import 'package:edu_vista_test/pages/account/LoginPage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/categoriesPage.dart';
+import 'package:edu_vista_test/pages/courses/myHomepage.dart';
 import 'package:edu_vista_test/utils/image_utility.dart';
-// import 'package:edu_vista_test/pages/LoginPage.dart';
-// import 'package:edu_vista_test/pages/categoriesPage.dart';
 import 'package:edu_vista_test/pages/on%20start/onboarding_page.dart';
 import 'package:edu_vista_test/services/pref.service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -42,11 +40,14 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _startApp() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     if (mounted) {
       if (PreferencesService.isOnBoardingSeen) {
         if (FirebaseAuth.instance.currentUser != null) {
-          Navigator.pushReplacementNamed(context, CategoriesPage.id);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => myHomepage()),
+          );
         } else {
           Navigator.pushReplacement(
       context,
@@ -54,7 +55,10 @@ class _SplashPageState extends State<SplashPage> {
     );
         }
       } else {
-        Navigator.pushReplacementNamed(context, OnBoardingPage.id);
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => OnBoardingPage()),
+          );
       }
     }
   }

@@ -6,31 +6,26 @@ class TextFieldsWidget extends StatelessWidget {
   String labelText;
   var keyboardType;
   bool? hiddenPassword;
+  String? Function(String?)? validator;
   TextEditingController? controller;
-  TextFieldsWidget({
-    super.key,
-     this.keyboardType,
-    required this.labelText,
-    required this. controller,
-    this. hiddenPassword
-  });
-
-  
+  TextFieldsWidget(
+      {super.key,
+      this.keyboardType,
+      required this.labelText,
+      required this.controller,
+      this.hiddenPassword,
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
     return TextFormField(
-      obscureText:hiddenPassword??false ,
-      controller:controller,
+      obscureText: hiddenPassword ?? false,
+      controller: controller,
+      validator: validator,
       autofillHints: [AutofillHints.email],
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: TextStyle(
-          
           fontFamily: 'Readex Pro',
           letterSpacing: 0,
         ),
@@ -72,7 +67,5 @@ class TextFieldsWidget extends StatelessWidget {
       ),
       keyboardType: keyboardType,
     );
-
-    
   }
 }

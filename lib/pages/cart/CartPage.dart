@@ -1,6 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace, deprecated_member_use, prefer_const_constructors
 
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/checkoutPage.dart';
+import 'package:edu_vista_test/pages/cart/checkoutPage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';

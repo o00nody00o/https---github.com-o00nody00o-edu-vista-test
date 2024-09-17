@@ -1,10 +1,10 @@
 
 // ignore_for_file: library_private_types_in_public_api, prefer_const_constructors
 
-import 'package:edu_vista_test/engwidgets/custom_elevated_button.dart';
-import 'package:edu_vista_test/engwidgets/onboarding/elevated_button_rounded.dart';
-import 'package:edu_vista_test/engwidgets/onboarding/onboard_indicator.dart';
-import 'package:edu_vista_test/engwidgets/onboarding/onboard_item_widget.dart';
+import 'package:edu_vista_test/widgets/custom_elevated_button.dart';
+import 'package:edu_vista_test/widgets/onboarding/elevated_button_rounded.dart';
+import 'package:edu_vista_test/widgets/onboarding/onboard_indicator.dart';
+import 'package:edu_vista_test/widgets/onboarding/onboard_item_widget.dart';
 // import 'package:edu_vista_test/pages/LoginPage.dart';
 import 'package:edu_vista_test/pages/account/LoginPage.dart';
 import 'package:edu_vista_test/pages/account/SignUpPage.dart';

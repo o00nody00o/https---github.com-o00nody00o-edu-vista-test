@@ -2,8 +2,8 @@
 
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/PaymentcardPage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/ChoosePaymentPage.dart';
+import 'package:edu_vista_test/pages/cart/PaymentcardPage.dart';
+import 'package:edu_vista_test/pages/cart/ChoosePaymentPage.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutPage extends StatelessWidget {

@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/PaymentcardPage.dart';
+import 'package:edu_vista_test/pages/cart/PaymentcardPage.dart';
 import 'package:edu_vista_test/utils/color_utilis.dart';
 import 'package:flutter/material.dart';
 

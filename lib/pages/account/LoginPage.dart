@@ -1,14 +1,8 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, sized_box_for_whitespace, library_private_types_in_public_api, use_build_context_synchronously, deprecated_member_use
 
-// import 'package:edu_vista_test/pages/HomePage.dart';
 import 'package:edu_vista_test/pages/account/SignUpPage.dart';
 import 'package:edu_vista_test/pages/account/forgotPasswordPage.dart';
-// import 'package:edu_vista_test/pages/categoriesPage.dart';
-// import 'package:edu_vista_test/pages/forgotPasswordPage.dart';
-// import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/myHomepage.dart';
-// import 'package:edu_vista_test/pages/signUpPage.dart';
-// import 'package:edu_vista_test/pages/test.dart';
+import 'package:edu_vista_test/pages/courses/myHomepage.dart';
 import 'package:edu_vista_test/widgets/my_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +16,6 @@ class LoginPage extends StatefulWidget {
 class LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
   final _formKey = GlobalKey<FormState>();
   static TextEditingController emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -63,13 +56,15 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Readex Pro',
-              fontSize: 25,
-              fontWeight: FontWeight.w600,
-            )),
+        title: Center(
+          child: Text('Login',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Readex Pro',
+                fontSize: 25,
+                fontWeight: FontWeight.w600,
+              )),
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
       ),

@@ -1,34 +1,35 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, file_names
+// ignore_for_file: prefer_const_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_vista_test/pages/account/LoginPage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/ChatsPage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/courses.dart';
-// import 'package:edu_vista_test/pages/loginPage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/ProfilePage.dart';
-import 'package:edu_vista_test/pages/nav%20bar%20tabs/SearchPage.dart';
+import 'package:edu_vista_test/pages/cart/CartPage.dart';
+import 'package:edu_vista_test/pages/chat/ChatsPage.dart';
+import 'package:edu_vista_test/pages/courses/SearchPage.dart';
+import 'package:edu_vista_test/pages/courses/courses.dart';
+import 'package:edu_vista_test/pages/profile/ProfilePage.dart';
 import 'package:edu_vista_test/widgets/CategoriesFilter.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class CategoriesPage extends StatefulWidget {
-   TextEditingController? email = LoginPageState.emailController;
-  static const String id = 'Categories';
-   CategoriesPage({super.key,this.email});
+class myHomepage extends StatefulWidget {
+  TextEditingController? email = LoginPageState.emailController; 
+
+  myHomepage({this.email});
 
   @override
-  State<CategoriesPage> createState() => _CategoriesPageState();
+  myHomepageState createState() => myHomepageState();
 }
 
-class _CategoriesPageState extends State<CategoriesPage> {
-
-String? fullName ;
- final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+class myHomepageState extends State<myHomepage> {
+  static String? fullName;
   int currentIndex = 0;
+  BuildContext get context;
+  @override
+  void initState() {
+    super.initState();
+    fetchFullName();
+  }
 
-
- Future<void> fetchFullName() async {
+  Future<void> fetchFullName() async {
     try {
       final querySnapshot = await FirebaseFirestore.instance
           .collection('users')
@@ -48,28 +49,22 @@ String? fullName ;
       setState(() {
         fullName = "Error fetching fullName.";
       });
-   
     }
-  }
- void initState() {
-    super.initState();
-   fetchFullName();
   }
 
   List<Widget> NavBarBody = [
     SafeArea(
-      child: SingleChildScrollView(
+        child: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           children: [
             SizedBox(
               height: 30,
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+              padding: const EdgeInsets.only(left: 20),
               child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Welcome',
                       textAlign: TextAlign.start,
@@ -79,40 +74,28 @@ String? fullName ;
                         letterSpacing: 0,
                         fontWeight: FontWeight.bold,
                       )),
-               
-                //   fullName != null
-                // ? Text(
-                //     fullName!,
-                //     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                //   )
-                // : Text(
-                //     "Full Name not found",
-                //     style: TextStyle(color: Colors.red),
-                //   ),
-
-
-
-
-                  // Text(  'Khan',
-                  //     style: TextStyle(
-                  //       fontFamily: 'Readex Pro',
-                  //       color: Color(0xFF488898),
-                  //       fontSize: 23,
-                  //       letterSpacing: 0,
-                  //       fontWeight: FontWeight.bold,
-                  //     )),
-                 Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(155, 0, 0, 0),
-                    child: InkWell(onTap: (){ 
-                      //  Navigator.pushReplacementNamed(context, PaymentMethodPage.id);
-                       } ,
-                      child: Icon(
-                        Icons.shopping_cart_outlined,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                    ),
+                  SizedBox(
+                    width: 5,
                   ),
+                  fullName != null
+                      ? Text(
+                          fullName!,
+                          style: TextStyle(
+                            fontFamily: 'Readex Pro',
+                            color: Color(0xFF488898),
+                            fontSize: 23,
+                            letterSpacing: 0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      : Text(
+                          "UserID9438",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 23,
+                          ),
+                        ),
+               
                 ],
               ),
             ),
@@ -133,12 +116,14 @@ String? fullName ;
                     SizedBox(
                       width: 195,
                     ),
-                    Text('See All',
-                        style: TextStyle(
-                          fontFamily: 'Readex Pro',
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.w600,
-                        )),
+                    InkWell(onTap: () => null,
+                      child: Text('See All',
+                          style: TextStyle(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0,
+                            fontWeight: FontWeight.w600,
+                          )),
+                    ),
                   ]),
             ),
             SingleChildScrollView(
@@ -314,17 +299,14 @@ String? fullName ;
                           courseName: 'Linux for beginners',
                         ),
                       ),
-                      
-                        Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
-                            child: mycourse(
-                              bigImage: 'assets/images/image 2.png',
-                              courseAuther: 'Stephen Moris',
-                              price: '24.50',
-                              courseName: 'Machine Learning',
-                            )),
-                     
+                      Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
+                          child: mycourse(
+                            bigImage: 'assets/images/image 2.png',
+                            courseAuther: 'Stephen Moris',
+                            price: '24.50',
+                            courseName: 'Machine Learning',
+                          )),
                     ],
                   ),
                 ],
@@ -332,16 +314,18 @@ String? fullName ;
             ),
           ],
         ),
+
+
+        
       ),
-    ),
+    )),
     CoursesPage(),
+    CartPage(),
     SearchPage(),
     ChatsPage(),
-    ProfilePage()
+    ProfilePage(currentProfileImageUrl: '',)
   ];
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -360,7 +344,7 @@ String? fullName ;
           });
         },
         items: [
-          BottomNavigationBarItem(
+          BottomNavigationBarItem(backgroundColor: Colors.white,
               label: '',
               icon: Icon(
                 Icons.home_filled,
@@ -369,20 +353,31 @@ String? fullName ;
           BottomNavigationBarItem(
               label: '', icon: Icon(Icons.book, color: Colors.black)),
           BottomNavigationBarItem(
+            label: '',
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.black,
+            ),
+          ),
+          BottomNavigationBarItem(
               label: '', icon: Icon(Icons.search, color: Colors.black)),
           BottomNavigationBarItem(
               label: '',
               icon: Icon(Icons.chat_bubble_outline, color: Colors.black)),
           BottomNavigationBarItem(
               label: '',
-              icon:CircleAvatar(
-  radius: 25,
-  backgroundColor: Colors.white,
-  child: Padding(
-    padding: const EdgeInsets.all(8), 
-    child: ClipOval(child: Image.asset('assets/images/nav pic.png',fit:BoxFit.fill ,)),
-  ),
-))
+              icon: CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: ClipOval(
+                      child: Image.asset(
+                    'assets/images/nav pic.png',
+                    fit: BoxFit.fill,
+                  )),
+                ),
+              ))
         ],
       ),
     );
